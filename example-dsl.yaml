@@ -1,0 +1,52 @@
+public:
+  functions:
+    get_flat_value: |
+      def get_flat_value(mean, randomness):
+        return np.random.normal(mean, randomness)
+    get_rainfall_spike: |
+      def get_rainfall_spike(i, seasonal_spikes):
+        if i in seasonal_spikes:
+          return 50 + np.random.randint(0,2)
+        else:
+          return np.random.randint(0,2)
+    get_disease_cases_with_lag: |
+      def get_disease_cases_with_lag(rainfall, lag):
+        if len(rainfall) < lag:
+          return int(rainfall[-1])
+        return int(rainfall[-lag])
+  lists:
+    seasonal_spikes:
+      [5, 17, 29, 41, 53, 65, 77, 89, 101, 113, 125, 137, 149, 161]
+
+simulators:
+  - id: 1
+    name: seasonal spikes for 60 months (trained on 4 spikes)
+    description: Is the model able to detect the lag relationship between rainfall and disease cases?
+    time_delta: M
+    length: 60
+    x:
+      - name: rainfall
+        function_ref: get_rainfall_spike
+      - name: population
+        function_ref: get_flat_value
+        params:
+          mean: 1000
+          randomness: 5
+      - name: mean_temperature
+        function_ref: get_flat_value
+        params:
+          mean: 27
+          randomness: 3
+    y:
+      - name: disease_cases
+        function_ref: get_disease_cases_with_lag
+        params:
+          lag: 3
+
+evaluators:
+  - model: https://github.com/sandvelab/monthly_ar_model
+    prediction_length: 3
+    stride: 2
+    n_test_sets: 6
+    metrics: [mse, pocid, theils_u]
+    plot_length: 60
