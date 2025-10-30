@@ -21,18 +21,18 @@ This project depends on several Python packages that may require careful version
 
 #### 1. Create a virtual environment
 
-Make sure to use Python 3.11
+Make sure to use Python 3.11 and to have version 3.11.3 installed on your system.
 
 ```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
-pip --version
+pip install --upgrade "pip==24.0"
 ```
 
-**pip** should use version 24.0
+Furthermore, pyenv (https://github.com/pyenv/pyenv) is required when running a model through the chap-core repository. Make sure it is installed as well:
 
 ```bash
-pip --version
+pyenv --version
 ```
 
 #### 2. Install mestDS and other packages
@@ -40,19 +40,19 @@ pip --version
 Install only mestDS (not it's required packages):
 
 ```bash
-pip install mestDS==0.0.3 --no-deps
+pip install mestDS --no-deps
 ```
 
-Install chap-core, but ignore numpy and scipy:
+Install chap-core:
 
 ```bash
-pip install chap-core==1.0.17 --ignore-installed numpy scipy
+pip install chap-core
 ```
 
-Install all the other packages:
+Lastly, install fpdf:
 
 ```bash
-pip install fpdf2==2.8.2 gitpython==3.1.45 joblib==1.4.2 matplotlib==3.10.6 pandas==2.3.3 pyyaml==6.0.3 scikit-learn==1.7.2 scipy==1.10.1 numpy==1.26.4
+pip install fpdf2
 ```
 
 #### 3. Test setup
