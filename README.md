@@ -12,8 +12,6 @@ After completing the set up below, try following these steps for an deeper under
 
 ## Installation
 
-This project depends on several Python packages that may require careful version management. The instructions below ensure a smooth setup:
-
 ### 1. Installing pyenv and Python 3.11.3
 
 A prerequisite for running models through chap-core, is having Python 3.11.3 installed on your system.
@@ -82,37 +80,16 @@ Use pyenv to install the specific Python version:
 pyenv install 3.11.3
 ```
 
-### 2. Set up Python virtual environment
+### 2. Install mestDS
 
-This guide recommends using a Python virtual environment for installing packages:
+> **Plase note:** A MacOS user experienced problems with running models with `chap-core` through `mestDS` without explicitly using `Python 3.11.3`. This can be solved in multiple ways, but because you have already installed `pyenv` by following this tutorial, you can simply create a pyenv shell with the correct version: `pyenv shell 3.11.3`.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
+> **Furthermore:** The author of this tutorial recommend using a clean virtual environment of some sort (e.g. venv, conda, etc.) Those often allow you to create a virtual environment with a specific `Python` version.
 
-#### 2.2 Install the required packages:
-
-Due to version conflicts, the packages must be installed with careful considerations.
-
-Install only mestDS (not it's required packages):
+Now it is time to install `mestDS` with `pip`:
 
 ```bash
-pip install mestDS --no-deps
-```
-
-Install chap-core:
-
-```bash
-pip install chap-core
-```
-
-This will likely result in an error about version conflicts, but this can be ignored.
-
-Lastly, install fpdf:
-
-```bash
-pip install fpdf2
+pip install mestDS==0.0.4
 ```
 
 ### 4. Test setup
@@ -123,5 +100,3 @@ You can verify that the setup is working by cloning this repository and running 
 git clone https://github.com/martin-og-ingar/mestDS-tutorial.git
 python script.py
 ```
-
-Once everything is up and running, you can check out the [introduction to mestDS](tutorial.md), for a simple and progressive introduction to how the framework can be used. A [documentation for the **domain-specific language (DSL)**](documentation.md) is also provided, which describes how the DSL is structured and how **Simulators** and **Evaluators** are defined. Lastly, a

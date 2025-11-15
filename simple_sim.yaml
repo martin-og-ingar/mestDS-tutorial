@@ -1,0 +1,32 @@
+simulators:
+  - id: 1
+    name: 1st Simplistic Simulator
+    description: This is very simplistic simulation
+    time_delta: M
+    length: 100
+    x:
+      - name: population
+        function: |
+          def get_pop(): #
+            return np.random.randint(1000,1010)
+      - name: rainfall
+        function: |
+          def get_rainfall(): # rainfall
+            return np.random.randint(0,30)
+      - name: mean_temperature
+        function: |
+          def get_temp(): # mean temperature
+            return np.random.randint(20,30)
+    y:
+      - name: disease_cases
+        function: |
+          def get_dc(rainfall, mean_temperature): # disease cases
+            #return int(rainfall[-1]*0.5 + mean_temperature[-1]*0.5)
+            return np.random.randint(50, 100)
+evaluators:
+  - model: https://github.com/sandvelab/monthly_ar_model
+    prediction_length: 3
+    stride: 2
+    n_test_sets: 6
+    metrics: [mse, pocid, theils_u]
+    plot_length: 100
