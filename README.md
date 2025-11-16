@@ -8,7 +8,7 @@ After completing the set up below, try following these steps for an deeper under
 
 1. Complete the [introduction to mestDS](tutorial.md).
 2. Explore the [documentation of the DSL](documentation.md) to learn more about `mestDS`'s posibilities.
-3. Complete the introduction to [Mechanism-Isolated Model Evaluations (MIMES)](mimes.md). This introduces an approach to using simulated time series for model evaluation, an area that remains relatively unexplored in the literature. It highlights both the value of the MIMES approach and the strengths of mestDS, which is particularly well-suited for this approach.
+3. The developer of this framework has utilized it to explore an alternative approach to model evaluations, referred to as **MIMES**. Read the section on **Mechanism-Isolated Model Evaluation with Simulated Time Series (MIMES)** and **Experiments and Results** in the [thesis](thesis.pdf) for an introduction to **MIMES**. Alternatively, read the entire [thesis](thesis.pdf) for a holstic understanding of **MIMES** and **mestDS**.
 
 ## Installation
 
@@ -84,7 +84,7 @@ pyenv install 3.11.3
 
 > **Plase note:** A MacOS user experienced problems with running models with `chap-core` through `mestDS` without explicitly using `Python 3.11.3`. This can be solved in multiple ways, but because you have already installed `pyenv` by following this tutorial, you can simply create a pyenv shell with the correct version: `pyenv shell 3.11.3`.
 
-> **Furthermore:** The author of this tutorial recommend using a clean virtual environment of some sort (e.g. venv, conda, etc.) Those often allow you to create a virtual environment with a specific `Python` version.
+> **Furthermore:** The developer of this framework recommend using a clean virtual environment of some sort (e.g. venv, conda, etc.) Those often allow you to create a virtual environment with a specific `Python` version.
 
 Now it is time to install `mestDS` with `pip`:
 

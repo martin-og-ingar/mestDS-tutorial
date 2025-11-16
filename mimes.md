@@ -1,3 +1,0 @@
-# mestDS - Mechanism-Isolated Model Evaluation (MIMES)
-
-WORK IN PROGRESS...
